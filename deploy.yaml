@@ -7,7 +7,7 @@
   tasks:
     - import_tasks: tasks/install_nginx.yaml
     - name: Ensure Web Server is Running
-      service:
+      systemd:
         name: nginx
         state: started
         enabled: yes
