@@ -1,15 +1,7 @@
 - name: update
-  apt: 
+  apt:
     update_cache: true
 - name: Install Nginx
-  apt: 
-    name: nginx 
+  apt:
+    name: nginx
     state: latest
-  notify:
-    - restart nginx
-
-  handlers:
-    - name: restart nginx
-      service: 
-        name: nginx 
-        state: reloaded
