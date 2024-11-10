@@ -20,11 +20,13 @@ def hw6():
     # create a connection cursor
     cur = conn.cursor()
     # execute a SQL statement
-    cur.execute(f"""
+    results = cur.execute(f"""
                 select A.Player as p1,B.Player as p2, C.Player as p3,D.Player as p4 
                 from assists A, assists B, assists C, assists D 
                 where A.POS=B.POS and B.POS=C.POS and C.POS=D.POS and A.Club<>B.Club and A.club<>C.Club and A.Club<>C.Club and A.Club<>D.Club and B.Club<>C.Club and B.Club<>D.Club and C.Club<>D.Club and A.Player=? 
                 order by A.A+B.A+C.A+D.A desc, A.A desc, B.A desc, C.A desc, D.A desc, p1, p2, p3, p4 limit 1;""", player)
+
+    return results.first()[0]
     # # serialize results into JSON
     # row_headers=[x[0] for x in cur.description]
     # rv = cur.fetchall()
