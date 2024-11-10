@@ -7,7 +7,7 @@ config = {
     'port': 3306,
     'user': 'root',
     'password': 'example',
-    'database': 'hw6'
+    'database': 'hw9'
 }
 
 app = Flask(__name__)
