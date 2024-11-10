@@ -8,7 +8,8 @@ services:
     environment:
       MARIADB_ROOT_PASSWORD: example
     network_mode: host # default port is 3306
-  flask: 
+  flask:
     build: .
     ports:
       - "80:5000" # 5000 default port for flask
+    network_mode: host
