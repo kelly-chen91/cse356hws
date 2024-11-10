@@ -8,7 +8,7 @@ app = Flask(__name__)
 def hw6(): 
     player = request.args.get('player')
      # connection for MariaDB
-    engine = create_engine("mariadb+mariadbconnector://root:example@127.0.0.1:3306/hw9")
+    engine = create_engine("mariadb+pymysql://root:example@127.0.0.1:3306/hw9")
     ret = []
     # create a connection cursor
     with engine.connect() as connection:
