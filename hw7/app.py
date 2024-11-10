@@ -29,6 +29,7 @@ def hw6():
     # print(cur.)
     resp = make_response({"players": ret}, 200)
     resp.headers["Content-Type"] = "application/json"
+    resp.headers["X-CSE356"] = "66cfe2a89ba30e1a6c706759"
     # return the results!
     return resp
     
