@@ -18,7 +18,7 @@ def hw6():
     
     temp = ''.join(player.split(' '))
     
-    # result = cache.get(temp)
+    result = cache.get(temp)
     
     # if not result: 
     # create a connection cursor
@@ -34,7 +34,7 @@ def hw6():
         for row in result:  
             app.logger.info(f"Row: {row}")
             ret = list(row)
-        # cache.set(temp, ret, 3600)
+        cache.set(temp, ret, 3600)
     resp = make_response({"players": ret}, 200)
     resp.headers["Content-Type"] = "application/json"
     resp.headers["X-CSE356"] = "66cfe2a89ba30e1a6c706759"
