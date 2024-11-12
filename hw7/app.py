@@ -16,7 +16,9 @@ def hw6():
     cache = Client('localhost:11211')
     ret = []
     
-    result = cache.get(player)
+    temp = ''.join(player.split(' '))
+    
+    result = cache.get(temp)
     
     if not result: 
         # create a connection cursor
@@ -28,7 +30,7 @@ def hw6():
                     order by A.A+B.A+C.A+D.A desc, A.A desc, B.A desc, C.A desc, D.A desc, p1, p2, p3, p4 limit 1;"""), {"player":player})
             for row in result:  
                 ret.append(row.Player)
-            cache.set(player, ret, 3600)
+            cache.set(temp, ret, 3600)
     resp = make_response({"players": ret}, 200)
     resp.headers["Content-Type"] = "application/json"
     resp.headers["X-CSE356"] = "66cfe2a89ba30e1a6c706759"
