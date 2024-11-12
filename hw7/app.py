@@ -13,7 +13,7 @@ def hw6():
     engine = create_engine("mysql+pymysql://root:example@localhost:3306/hw9")
     
     # connection to memcached
-    cache = Client(['localhost:11211'])
+    cache = Client('localhost:11211')
     ret = []
     
     result = cache.get(player)
