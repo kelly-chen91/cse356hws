@@ -1,6 +1,7 @@
 from flask import Flask, request, make_response
 from sqlalchemy import create_engine, text
 from pymemcache.client.base import Client
+from urllib.parse import quote  # To URL-encode the player name
 import json
 
 
@@ -15,13 +16,9 @@ def hw6():
     # connection to memcached
     cache = Client('localhost:11211')
     ret = []
-    
-    temp = ''.join(player.split(' '))
-    
+    temp = quote(player)
     result = cache.get(temp)
-    
     app.logger.info(f'Cached Result: {result}')
-    
     # if not result: 
     # create a connection cursor
     with engine.connect() as connection:
