@@ -4,10 +4,20 @@ version: "3.1"
 services:
   db:
     image: mariadb
+    container_name: mariadb
     restart: always
     environment:
       MARIADB_ROOT_PASSWORD: example
     network_mode: host # default port is 3306
   flask:
+    container_name: flask
     build: .
+    network_mode: host
+  memcached:
+    container_name: memcached
+    image: memcached
+    command:
+      - --conn-limit=1024
+      - --memory-limit=64
+      - --threads=4
     network_mode: host
