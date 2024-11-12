@@ -1,6 +1,6 @@
 from flask import Flask, request, make_response
 from sqlalchemy import create_engine, text
-import memcache
+from pymemcache.client.base import Client
 import json
 
 
