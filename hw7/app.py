@@ -20,6 +20,8 @@ def hw6():
     
     result = cache.get(temp)
     
+    app.logger.info(f'Cached Result: {result}')
+    
     # if not result: 
     # create a connection cursor
     with engine.connect() as connection:
