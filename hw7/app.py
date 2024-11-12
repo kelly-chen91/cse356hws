@@ -2,6 +2,7 @@ from flask import Flask, request, make_response
 from sqlalchemy import create_engine, text
 from pymemcache.client.base import Client
 import json
+import ast
 
 
 app = Flask(__name__)
@@ -18,7 +19,8 @@ def hw6():
     temp = ''.join(player.split(' '))
     result = cache.get(temp)
     app.logger.info(f'Cached Result: {result}')
-    ret = result
+    decodedRes = result.decode('utf-8')
+    ret = ast.literal_eval(decodedRes)
     if not result: 
     # create a connection cursor
         with engine.connect() as connection:
