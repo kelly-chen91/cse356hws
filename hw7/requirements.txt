@@ -1,10 +1,12 @@
 blinker==1.9.0
 click==8.1.7
 Flask==3.0.3
+gunicorn==23.0.0
 hashring==1.5.1
 itsdangerous==2.2.0
 Jinja2==3.1.4
 MarkupSafe==3.0.2
+packaging==24.2
 pymemcache==4.0.0
 PyMySQL==1.1.1
 SQLAlchemy==2.0.36
