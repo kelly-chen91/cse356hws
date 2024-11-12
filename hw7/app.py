@@ -30,9 +30,9 @@ def hw6():
                 order by A.A+B.A+C.A+D.A desc, A.A desc, B.A desc, C.A desc, D.A desc, p1, p2, p3, p4 limit 1;"""), {"player": player})
         app.logger.info(f"Player received from request: {player}")
         app.logger.info(f"Result: {result}")
-
-        # for row in result:  
-        #     print(row)
+        # app.logger.info(f"Result: {result}")
+        for row in result:  
+            print(row)
             # ret.append(row.Player)
         # cache.set(temp, ret, 3600)
     resp = make_response({"players": ret}, 200)
