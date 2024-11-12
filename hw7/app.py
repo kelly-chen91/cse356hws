@@ -29,7 +29,8 @@ def hw6():
                     where A.POS=B.POS and B.POS=C.POS and C.POS=D.POS and A.Club<>B.Club and A.club<>C.Club and A.Club<>C.Club and A.Club<>D.Club and B.Club<>C.Club and B.Club<>D.Club and C.Club<>D.Club and A.Player= :player 
                     order by A.A+B.A+C.A+D.A desc, A.A desc, B.A desc, C.A desc, D.A desc, p1, p2, p3, p4 limit 1;"""), {"player":player})
             for row in result:  
-                ret.append(row.Player)
+                print(row)
+                # ret.append(row.Player)
             cache.set(temp, ret, 3600)
     resp = make_response({"players": ret}, 200)
     resp.headers["Content-Type"] = "application/json"
