@@ -32,7 +32,7 @@ def hw6():
         app.logger.info(f"Result: {result}")
         # app.logger.info(f"Result: {result}")
         for row in result:  
-            print(row)
+            app.logger.info(f"Row: {row}")
             # ret.append(row.Player)
         # cache.set(temp, ret, 3600)
     resp = make_response({"players": ret}, 200)
