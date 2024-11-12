@@ -19,11 +19,11 @@ def hw6():
     temp = ''.join(player.split(' '))
     
     # result = cache.get(temp)
+    print("Player: ", player)
     
     # if not result: 
     # create a connection cursor
     with engine.connect() as connection:
-        print("Player: ", player)
         result = connection.execute(text("""
                 select A.Player as p1,B.Player as p2, C.Player as p3,D.Player as p4 
                 from assists A, assists B, assists C, assists D 
@@ -37,7 +37,7 @@ def hw6():
     resp.headers["Content-Type"] = "application/json"
     resp.headers["X-CSE356"] = "66cfe2a89ba30e1a6c706759"
     # return the results!
-    return player
+    return resp
     
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="80", debug=True)
