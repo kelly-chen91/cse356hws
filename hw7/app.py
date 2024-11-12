@@ -37,7 +37,7 @@ def hw6():
     resp.headers["Content-Type"] = "application/json"
     resp.headers["X-CSE356"] = "66cfe2a89ba30e1a6c706759"
     # return the results!
-    return resp
+    return player
     
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="80", debug=True)
