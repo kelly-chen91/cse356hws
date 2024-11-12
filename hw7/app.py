@@ -18,6 +18,7 @@ def hw6():
     temp = ''.join(player.split(' '))
     result = cache.get(temp)
     app.logger.info(f'Cached Result: {result}')
+    ret = result
     if not result: 
     # create a connection cursor
         with engine.connect() as connection:
