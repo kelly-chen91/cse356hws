@@ -7,7 +7,7 @@ import ast
 
 app = Flask(__name__)
 
-@app.route('/hw6')
+@app.route('/hw6', methods=['GET'])
 def hw6(): 
     player = request.args.get('player')
      # connection for MariaDB
