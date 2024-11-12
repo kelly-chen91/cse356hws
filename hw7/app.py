@@ -23,6 +23,7 @@ def hw6():
     # if not result: 
     # create a connection cursor
     with engine.connect() as connection:
+        print("Player: ", player)
         result = connection.execute(text("""
                 select A.Player as p1,B.Player as p2, C.Player as p3,D.Player as p4 
                 from assists A, assists B, assists C, assists D 
