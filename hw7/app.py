@@ -33,9 +33,9 @@ def hw6():
             # app.logger.info(f"Player received from request: {player}")
             # app.logger.info(f"Result: {result}")
             # app.logger.info(f"Result: {result}")
-            # for row in result:  
+            for row in result:  
                 # app.logger.info(f"Row: {row}")
-            ret = list(result[0])
+                ret = list(row)
             cache.set(temp, ret, 3600)
     resp = make_response({"players": ret}, 200)
     resp.headers["Content-Type"] = "application/json"
